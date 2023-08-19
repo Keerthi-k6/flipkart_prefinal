@@ -2,51 +2,118 @@
 <html>
 <head>
     <title>Product Recommendations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') | safe }}">
 </head>
 <body>
-    <h1>Product Recommendations</h1>
-
-    <!-- Similar Users Recommendation Form -->
-    <form id="similar-users-form">
-        <label for="user-id">User ID:</label>
-        <input type="text" id="user-id" name="user_id" required>
-        <button type="button" onclick="getSimilarUserRecommendations()">Get Similar User Recommendations</button>
-    </form>
-    <div id="similar-users-recommendations">
-        <h2>Recommended Products (Similar Users):</h2>
-        <ul id="similar-users-recommendations-list"></ul>
-    </div>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Re.Com</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item ">
+                <a class="nav-link " href="/personalized" aria-expanded="false">
+                  User
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
     <!-- Rank-Based Recommendation Form -->
-    <form id="rank-based-form">
-        <label for="sub-category">Select a Sub-Category:</label>
-        <select id="sub-category" name="sub_category">
-            <option value="lgTV">lgTV</option>
-            <option value="boat">boat</option>
-            <option value="mi">mi</option>
-            <option value="dell">dell</option>
-            <option value="hp">hp</option>
-            <!-- Add more options for other sub-categories -->
-        </select>
-        <button type="button" onclick="getRankBasedRecommendations()">Get Rank-Based Recommendations</button>
-    </form>
+    <!-- ['OnePlusBuds', 'samsung', 'hp', 'canoncamera', 'dell', 'Realmebuds', 'boat', 'Apple Mobiles', 'lgTV', 'nikoncamera', 'Skullcandy', 'lenovo', 'samsungTV', 'Noiseearbuds', 'IQ Mobiles', 'mi'] -->
+    <div class="rank-based-div">
+    <div class="h2 text-center">Browse our top recommended products by brands</div>
+    <div id="sub-category-buttons">
+        <div class="top-brands"  data-bs-spy="scroll">  
+        <a href="#rank-based-recommendations-list">
+        <div class="OnePlusBuds" onclick="getRankBasedRecommendations('OnePlusBuds')" style="color: white;">
+            <img src="{{ url_for('static', filename='images/OnePlus-Logo.png') }}" alt="Image 2" class="logo" >
+        </div>
+      </a>
+        <a href="#rank-based-recommendations-list"><div class="samsung" onclick="getRankBasedRecommendations('samsung')">
+        <img src="{{ url_for('static', filename='images/samsung-logo.png') }}" alt="Image 1"class=" logo">
+        </div></a>
+        <a href="#rank-based-recommendations-list">
+        <div class="hp" onclick="getRankBasedRecommendations('hp')">
+        <img src="{{ url_for('static', filename='images/hp-logo.png') }}" alt="Image 1"class=" logo">
+        </div>
+        </a>
+        <a href="#rank-based-recommendations-list">
+        <div class="canoncamera" onclick="getRankBasedRecommendations('canoncamera')">
+        <img src="{{ url_for('static', filename='images/c.png') }}" alt="Image 1"class=" logo">
+        </div>
+        </a>
+        <a href="#rank-based-recommendations-list">
+        <div class="dell" onclick="getRankBasedRecommendations('dell')">
+        <img src="{{ url_for('static', filename='images/dell.png') }}" alt="Image 1"class=" logo">
+        </div>
+        </a>
+        <a href="#rank-based-recommendations-list">
+        <div class="realme" onclick="getRankBasedRecommendations('Realmebuds')">
+        <img src="{{ url_for('static', filename='images/realme.png') }}" alt="Image 1"class=" logo">
+        </div>
+        </a>
+        <a href="#rank-based-recommendations-list">
+        <div class="boat" onclick="getRankBasedRecommendations('boat')">
+        <img src="{{ url_for('static', filename='images/boat.png') }}" alt="Image 1"class=" logo">
+        </div>
+        </a>
+        <a href="#rank-based-recommendations-list">
+        <div class="AppleMobiles" onclick="getRankBasedRecommendations('Apple Mobiles')">
+        <img src="{{ url_for('static', filename='images/Apple Mobiles.png') }}" alt="Image 1"class=" logo">
+        </div>
+        </a>
+        <a href="#rank-based-recommendations-list">
+        <div class="lg" onclick="getRankBasedRecommendations('lgTV')">
+        <img src="{{ url_for('static', filename='images/lg.png') }}" alt="Image 1" class="logo">
+        </div>
+        </a>
+        <a href="#rank-based-recommendations-list">
+        <div class="nikoncamera" onclick="getRankBasedRecommendations('nikoncamera')">
+        <img src="{{ url_for('static', filename='images/nikoncamera.png') }}" alt="Image 1" class="logo">
+        </div>
+        </a>
+        <a href="#rank-based-recommendations-list">
+        <div class="Skullcandy" onclick="getRankBasedRecommendations('Skullcandy')">
+        <img src="{{ url_for('static', filename='images/Skullcandy.png') }}" alt="Image 1" class="logo">
+        </div>
+        </a>
+        <a href="#rank-based-recommendations-list">
+        <div class="lenovo" onclick="getRankBasedRecommendations('lenovo')">
+        <img src="{{ url_for('static', filename='images/lenovo.png') }}" alt="Image 1" class="logo">
+        </div>
+        </a>
+        <a href="#rank-based-recommendations-list">
+        <div class="samsungTV" onclick="getRankBasedRecommendations('samsungTV')">
+        <img src="{{ url_for('static', filename='images/samsungTV.png') }}" alt="Image 1" class="logo">
+        </div>
+        </a>
+        <a href="#rank-based-recommendations-list">
+        <div class="Noiseearbuds" onclick="getRankBasedRecommendations('Noiseearbuds')">
+        <img src="{{ url_for('static', filename='images/Noiseearbuds.png') }}" alt="Image 1" class="logo">
+        </div>
+        </a>
+        <a href="#rank-based-recommendations-list">
+        <div class="IQ Mobiles" onclick="getRankBasedRecommendations('IQ Mobiles')">
+            <img src="{{ url_for('static', filename='images/IQ Mobiles.png') }}" alt="Image 1" class="logo">
+        </div>
+        </a>
+    </div>
+    </div>
+    
     <div id="rank-based-recommendations">
-        <h2>Recommended Products (Rank-Based):</h2>
-        <ul id="rank-based-recommendations-list"></ul>
+        <div class="h2 text-center"id="rank-based-product-header"></div>
+        <div id="rank-based-recommendations-list"></div>
     </div>
-
-    <!-- Model-Based Recommendation Form -->
-    <form id="model-based-form">
-        <label for="user-id-model">User ID:</label>
-        <input type="text" id="user-id-model" name="user_id_model" required>
-        <button type="button" onclick="getModelBasedRecommendations()">Get Model-Based Recommendations</button>
-    </form>
-    <div id="model-based-recommendations">
-        <h2>Recommended Products (Model-Based):</h2>
-        <ul id="model-based-recommendations-list"></ul>
-    </div>
+</div>
       <!-- scripts -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
         <script src="{{ url_for('static', filename='script_similar_users.js') }}"></script>
         <script src="{{ url_for('static', filename='script_rank_based.js') }}"></script>
         <script src="{{ url_for('static', filename='script_model_based.js') }}"></script>

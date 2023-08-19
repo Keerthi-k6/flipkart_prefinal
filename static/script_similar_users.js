@@ -1,5 +1,8 @@
-async function getSimilarUserRecommendations() {
-    const userId = document.getElementById('user-id').value;
+async function getSimilarUserRecommendations(usrid) {
+    const userId = usrid;
+    console.log(usrid);
+    const rankbasedheader = document.getElementById('similar-based-product-header');
+    rankbasedheader.innerHTML=`You may also like:`;
     fetch('/api/similar_user/recommendations', {
         method: 'POST',
         headers: {
@@ -22,11 +25,13 @@ function displayRecommendation(recommendations) {
     recommendationsList.innerHTML =``;
     console.log(recommendationsList)
     for (var i = 0; i < recommendations.length; i++) {
-        var listItem = document.createElement("li");
+        var listItem = document.createElement("div");
+        listItem.classList.add('rank-based-card');
+        listItem.classList.add('card');
         listItem.innerHTML = `
-            <img src="${recommendations[i].image_url}" alt="${recommendations[i].product_name}">
-            <p>${recommendations[i].product_name}</p>
-            <p>Price: ${recommendations[i].price}</p>`;
+            <img src="${recommendations[i].image_url}" alt="${recommendations[i].product_name}" class="card-img-top rank-based-card-img">
+            <p class="card-text rank-based-card-text">${recommendations[i].product_name.substring(0, 40)}</p>
+            <h5 class="card-title rank-based-card-title">${recommendations[i].price}</h5>`;
         recommendationsList.appendChild(listItem);
     }
  }

@@ -14,5 +14,9 @@ app.register_blueprint(model_based_api_bp, url_prefix='/api/model_based')
 def index():
     return render_template('index.html')
 
+@app.route('/personalized')
+def user():
+    return render_template('similar_model.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

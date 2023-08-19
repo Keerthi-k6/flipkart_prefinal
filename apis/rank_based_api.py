@@ -42,7 +42,7 @@ def generate_recommendations(sub_category):
         recommendations = recommendations.sort_values('avg_rating', ascending=False)
         return recommendations.index[:n]
 
-    recommendations = top_n_products(final_rating, 10, 50)  # Change '10' to the number of recommendations you want
+    recommendations = top_n_products(final_rating, 12, 50)  # Change '10' to the number of recommendations you want
 
     return recommendations
 

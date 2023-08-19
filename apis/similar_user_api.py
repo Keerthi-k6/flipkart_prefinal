@@ -95,7 +95,7 @@ def get_user_recommendations():
         user_index = f.index(user_id)
         print(user_index)
         # Get recommendations for the user index
-        user_recommendations = recommendations(user_index, 10, final_ratings_matrix)
+        user_recommendations = recommendations(user_index, 12, final_ratings_matrix)
         print(user_recommendations)
 
         product_details = []
