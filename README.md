@@ -1,59 +1,107 @@
 # flipkart_prefinal
 # Re.com - Flipkart Grid 5.0
 
-## Project Overview
-
-This project is a submission for the Flipkart Grid 5.0 Hackathon, focused on developing a personalized product recommendation system. The project involves the utilization of various recommendation techniques and technologies to offer users tailored shopping experiences.
-
-## Team Members
-
+*Submission by:*
 - Keerthi Sree Konkimalla
 - Sanjana Racharla
 - Bhanu Prakash Sanikommu
 
 ## Problem Statement
 
-In the ever-changing realm of online shopping and e-commerce, delivering personalized product recommendations and rankings stands as a crucial factor for success. Users expect an experience tailored to their preferences and behaviors. The challenge is to devise an algorithm or model that generates accurate and relevant product recommendations and rankings for individual users. The solution should account for user-specific and product-related factors, encompassing historical interactions, product popularity, user similarities, and evolving market trends.
+In the dynamic landscape of online shopping and e-commerce, one of the most critical factors for success is the ability to provide users with personalized product recommendations and rankings. Users expect a tailored experience that aligns with their preferences and behavior. The challenge is to develop an algorithm or model that creates accurate and relevant product recommendations and rankings for individual users. The solution should consider user-specific and product-related factors, including historical interactions, product popularity, user similarities, and evolving market trends.
 
 ## Deliverables
 
-The project encompasses the following core facets:
+Our comprehensive solution encompasses the following core facets:
 
-1. **Personalized Recommendation Engine:** A novel recommendation engine that furnishes personalized product suggestions based on historical interactions, individual preferences, and product popularity.
+1. *Personalized Recommendation Engine:* We are crafting an innovative recommendation engine that provides personalized product suggestions based on historical interactions, individual preferences, and product popularity.
 
-2. **Dynamic Ranking System:** A dynamic ranking system that adjusts in real-time. This system recalibrates recommendations based on user interactions and evolving preferences.
+2. *Dynamic Ranking System:* Our approach includes a dynamic ranking system that adjusts in real-time. This system recalibrates recommendations based on user interactions and evolving preferences.
 
-3. **Scalability and Efficiency:** A solution designed for scalability and efficiency, catering to extensive user bases and diverse product catalogs while upholding a seamless user experience.
+3. *Scalability and Efficiency:* Our solution is designed for scalability and efficiency, accommodating extensive user bases and diverse product catalogs while maintaining a seamless user experience.
 
-## Subproblems and Approaches
+## Subproblems
 
-### Web Scraping for Electronics Data
+1. *Web Scraping for Electronics Data:* We extracted data from electronics websites using BeautifulSoup in Python3.
 
-We conducted data extraction from electronics websites using Python3's BeautifulSoup library. The targeted websites encompassed Flipkart, Myntra, and Amazon. The gathered data included attributes such as product name, price, brand, and image links. This data was systematically organized and stored within a CSV file.
+2. *Model Training:* Models were trained on raw electronics dataset to learn product patterns.
 
-### Model Training
+3. *Popularity Metric Calculation:* Our algorithm determined product popularity by combining ratings and reviews.
 
-Models were trained on the raw electronics dataset to discern product patterns. We leveraged tools like Scikit-learn (sklearn) for both training and validation purposes.
+4. *API Creation and Usage for Recommendations:* APIs were developed after model training and utilized to recommend products.
 
-### Popularity Metric Calculation
+## Project Requirements
 
-Our algorithm ascertained product popularity by amalgamating ratings and reviews. This metric formed the foundation for rank-based recommendations.
+The project was implemented using the following tools and libraries:
 
-### API Creation and Usage for Recommendations
+- Python
+- Beautiful Soup
+- Scikit-learn (sklearn)
+- NumPy
+- Pandas
+- SciPy
+- Seaborn
+- Flask
 
-We developed APIs post model training, which were subsequently employed to recommend products. Flask was the chosen framework for crafting these APIs.
+## Data Collection via Web Scraping
 
-### Similarity-Based Collaborative Filtering
+Web scraping was conducted using BeautifulSoup in Python3. We targeted three e-commerce websites for data extraction, focusing on electronics:
 
-A similarity-based collaborative filtering approach was adopted to furnish personalized recommendations based on interactions of akin users. Cosine similarity served as the means to identify users with comparable preferences.
+1. Flipkart
+2. Amazon
 
-### Model-Based Collaborative Filtering
+The collected data included attributes such as product name, price, brand, and image links. Data was organized and stored in a CSV file.
 
-A model-based collaborative filtering technique was harnessed to supply tailored suggestions by leveraging historical behaviors. Singular Value Decomposition (SVD) was employed to truncate dimensionality and estimate projected ratings.
+## Simulated Interaction Data
 
-### API Integration and Web Interface
+A separate CSV file contained fabricated interactions data, emulating user interactions. Parameters included User ID, Product ID, Ratings, Subcategory, and Category. This dataset facilitated algorithm testing and user behavior modeling.
 
-APIs for all three recommendation models were seamlessly integrated into a frontend web page via Flask. Users could directly access personalized recommendations through this web interface.
+## Rank-Based Product Recommendation
+
+*Objective:*
+- Suggest products based on popularity determined by ratings.
+
+*Outputs:*
+- Recommend top products with a minimum of 50/100 ratings or interactions.
+
+*Approach:*
+1. Compute average rating for each product.
+2. Calculate total number of ratings received by each product.
+3. Construct DataFrame, arranging by average rating.
+4. Develop function to extract top 'n' products with specified minimum interaction threshold.
+
+## Similarity-Based Collaborative Filtering
+
+*Objective:*
+- Deliver personalized recommendations based on interactions of comparable users.
+
+*Outputs:*
+- Recommend products based on interactions of similar users.
+
+*Approach:*
+1. Convert user IDs to numerical values.
+2. Identify users with similar preferences using cosine similarity.
+3. Propose products considering preferences of similar users.
+
+## Model-Based Collaborative Filtering
+
+*Objective:*
+- Provide tailored suggestions leveraging historical behaviors and addressing data sparsity.
+
+*Outputs:*
+- Offer top product recommendations tailored to specific users.
+
+*Approach:*
+1. Transform product rating matrix to compact CSR format.
+2. Use Singular Value Decomposition (SVD) to reduce dimensionality.
+3. Estimate projected ratings using SVD.
+4. Store predicted ratings in DataFrame with user and product attributes.
+5. Construct function to suggest products using predicted ratings and user preferences.
+6. Gauge model performance using Root Mean Square Error (RMSE).
+
+## API Integration and Web Interface
+
+APIs were developed for all three recommendation models. Using Flask, APIs were integrated into a frontend web page. Users could receive personalized recommendations directly through the web interface, enhancing user experience.
 
 ## Installation and Usage
 
