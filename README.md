@@ -12,6 +12,7 @@ In the dynamic landscape of online shopping and e-commerce, one of the most crit
 
 ## Deliverables
 
+
 Our comprehensive solution encompasses the following core facets:
 
 1. *Personalized Recommendation Engine:* We have crafted an innovative recommendation engine that provides personalized product suggestions based on historical interactions, individual preferences, and product popularity.
@@ -56,6 +57,9 @@ A separate CSV file contained fabricated interactions data, emulating user inter
 
 ## Rank-Based Product Recommendation
 
+![image](https://github.com/Keerthi-k6/flipkart_prefinal/assets/94037814/eed069a6-da11-414b-9748-763664b8ca44)
+
+
 *Objective:*
 - Suggest products based on popularity determined by ratings.
 
@@ -70,6 +74,11 @@ A separate CSV file contained fabricated interactions data, emulating user inter
 
 ## Similarity-Based Collaborative Filtering
 
+![image](https://github.com/Keerthi-k6/flipkart_prefinal/assets/94037814/c5bf7bd3-97bf-4f43-8701-8343339e08e5)
+
+![image](https://github.com/Keerthi-k6/flipkart_prefinal/assets/94037814/bb6d6d9e-3df3-4ac2-9c97-d8e5af078d25)
+
+
 *Objective:*
 - Deliver personalized recommendations based on interactions of comparable users.
 
@@ -82,6 +91,9 @@ A separate CSV file contained fabricated interactions data, emulating user inter
 3. Propose products considering preferences of similar users.
 
 ## Model-Based Collaborative Filtering
+
+![image](https://github.com/Keerthi-k6/flipkart_prefinal/assets/94037814/005ca52c-dc28-4d9d-a755-7286087eb779)
+
 
 *Objective:*
 - Provide tailored suggestions leveraging historical behaviors and addressing data sparsity.
