@@ -14,11 +14,9 @@ In the dynamic landscape of online shopping and e-commerce, one of the most crit
 
 Our comprehensive solution encompasses the following core facets:
 
-1. *Personalized Recommendation Engine:* We are crafting an innovative recommendation engine that provides personalized product suggestions based on historical interactions, individual preferences, and product popularity.
+1. *Personalized Recommendation Engine:* We have crafted an innovative recommendation engine that provides personalized product suggestions based on historical interactions, individual preferences, and product popularity.
 
-2. *Dynamic Ranking System:* Our approach includes a dynamic ranking system that adjusts in real-time. This system recalibrates recommendations based on user interactions and evolving preferences.
-
-3. *Scalability and Efficiency:* Our solution is designed for scalability and efficiency, accommodating extensive user bases and diverse product catalogs while maintaining a seamless user experience.
+2. *Scalability and Efficiency:* Our solution is designed for scalability and efficiency, accommodating extensive user bases and diverse product catalogs while maintaining a seamless user experience.
 
 ## Subproblems
 
